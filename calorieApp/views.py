@@ -16,7 +16,7 @@ def add_food(request):
 
     all_food = Food.objects.all()
     total_calories = sum(f.calories for f in all_food)
-    return render(request, "calorie_app/food_list.html", {
+    return render(request, "food_list.html", {
         "form": form,
         "foods": all_food,
         "total_calories": total_calories,
