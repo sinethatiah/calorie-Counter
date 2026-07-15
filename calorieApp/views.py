@@ -5,6 +5,10 @@ from .forms import FoodForm
 
 # Create your views here.
 
+from django.shortcuts import render, redirect
+from .models import Food
+from .forms import FoodForm
+
 def add_food(request):
     if request.method == "POST":
         form = FoodForm(request.POST)
@@ -15,7 +19,7 @@ def add_food(request):
         form = FoodForm()
 
     all_food = Food.objects.all()
-    total_calories = sum(f.calories for f in all_food)
+    total_calories = sum(f.food_calories for f in all_food)
     return render(request, "food_list.html", {
         "form": form,
         "foods": all_food,

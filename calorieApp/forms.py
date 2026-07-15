@@ -4,13 +4,13 @@ from .models import Food
 class FoodForm(forms.ModelForm):
     class Meta:
         model = Food
-        fields = ["name", "calories"]
+        fields = ["food_name", "food_calories"]
         widgets = {
-            "name": forms.TextInput(attrs={
+            "food_name": forms.TextInput(attrs={
                 "class": "form-control",
                 "placeholder": "Food name"
             }),
-            "calories": forms.NumberInput(attrs={
+            "food_calories": forms.NumberInput(attrs={
                 "class": "form-control",
                 "placeholder": "Calories"
             }),
